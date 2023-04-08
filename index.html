@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ------------------------------------------------------------------------------------------------------------ -->
+    <!-- based on the folder structure on the right -->
+    <!-- linking a css style sheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- linking a javascript file -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <!-- linking an image -->
+    <!-------------------------All copied from static module --------------------------------------------------------- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- ---------------------------------------------------------------------------------------------------make sure to put name of file above 'style' -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+     <!-- ----------------------------------------------All copied from bootstrap -------------------------------- -->
+
+
+    <title>Tables</title>
+</head>
+<body>
+    <!-- <h1>STOP, you're awesome.</h1> -->
+            <!-- {{players_for_jinjia}} -->
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Full Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+<!-- --------------------wants this to repeat /put in jinja/ for loop to repeat jfor -->
+<!-- --------------------users is random variable -->
+                {% for users in players_for_jinjia  %}
+                    <tr>
+                    <td>{{users['first_name']  }}</td>
+                    <td>{{ users['last_name'] }}</td>
+                    <td>{{ users['first_name'] + " " + users['last_name']}}</td>
+                  </tr>
+                {% endfor %}
+                  
+
+<!-- ------------------------------------------ -->
+
+                  <!-- <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr> -->
+                </tbody>
+              </table>
+</body>
+</html>
